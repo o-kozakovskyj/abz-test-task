@@ -2,11 +2,10 @@
   <div class="upload-wrapper">
     <label for="files" class="upload-wrapper__label">
       <button class="upload-wrapper__btn">Upload</button>
-      <span class="upload-wrapper__placeholder" >Upload your photo</span>
-      
+      <span class="upload-wrapper__placeholder" >
+        <slot></slot>
+      </span>
       <input type="file" id="files" accept="image/png, image/jpg, image/gif, image/jpeg" name="avatar">
-
-
     </label>
   </div>
 </template> 

@@ -44,7 +44,7 @@ export default {
       width: 380px;
     }
 
-    @include onDescktop {
+    @include onDesktop {
       margin-top: 164px;
     }
   }

@@ -35,6 +35,7 @@ export default {
   height: 60px;
   background-color: #fff;
   padding: 0 17px;
+  z-index: 3;
   &__nav {
     display: flex;
     align-items: center;

@@ -1,5 +1,5 @@
 <template>
-  <header-bar></header-bar>
+  <header-bar/>
   <router-view/>
 </template>
 

@@ -1,20 +1,20 @@
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
-const usePosts = (limit) => {
-  const posts = ref([]);
+const useUsers = (count, page) => {
+  const users = ref([]);
   const totalPages = ref(0);
   const isLoading = ref(true);
   const fetching = async () => {
     try {
-      const response = await axios.get(`https://jsonplaceholder.typicode.com/posts`, {
+      const response = await axios.get(`https://frontend-test-assignment-api.abz.agency/api/v1/users`, {
         params: {
-          _limit: limit,
-          _page: 1
+          count: count,
+          _page: page.value
         }
       });
-      totalPages.value = Math.ceil(response.headers['x-total-count'] / limit);
-      posts.value = response.data
+      totalPages.value = Math.ceil(100 / count);
+      users.value = [...users.value, ...response.data.users]
     } catch (e) {
       console.log(e)
     } finally {
@@ -22,8 +22,9 @@ const usePosts = (limit) => {
     }
   }
   onMounted(fetching)
+  watch(page, fetching)
   return {
-    posts, isLoading, totalPages
+    users, isLoading, totalPages
   }
 }
-export default usePosts;
+export default useUsers;
