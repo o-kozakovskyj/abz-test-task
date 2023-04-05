@@ -16,6 +16,7 @@
   height: 34px;
   border-radius: 80px;
   font-size: 16px;
+  font-family: inherit;
   background-color: $primary-color;
   border: none;
   &:hover {

@@ -3,13 +3,19 @@
     <h1 class="users__title">Working with GET request</h1>
     <div class="users__container">
       <div v-if="isLoading">
-      <spinner-page/>
+        <spinner-page />
       </div>
       <div class="users__list" v-for="user in users" :key="user.id" v-else>
         <user-card :user="user" />
       </div>
     </div>
-    <button-primary @click="nextPage" class="users__btn">Show more</button-primary>
+    <button-primary 
+      @click="nextPage" 
+      class="users__btn"
+      :disabled="page === totalPages"
+    >
+      Show more
+    </button-primary>
   </div>
 </template>
 
@@ -21,9 +27,9 @@ export default {
   components: {
     UserCard
   },
-  
+
   setup() {
-    const{page, nextPage} = usePage();
+    const { page, nextPage } = usePage();
     const count = 6;
     const { users, totalPages, isLoading } = useUsers(count, page);
     return {
@@ -44,9 +50,9 @@ export default {
   align-items: center;
   min-height: calc(100vh - 60px);
   margin-top: 60px;
-  background-color: #E5E5E5;
+  background-color: $background-main;
   padding: 80px 16px 16px 16px;
-  
+
 
   &__title {
     text-align: center;
@@ -79,6 +85,7 @@ export default {
       max-width: 1200px;
     }
   }
+
   &__btn {
     margin-top: 50px;
   }

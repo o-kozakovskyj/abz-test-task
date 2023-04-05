@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .home {
+  text-align: center;
   margin-top: 60px;
   background-image: url("../../public/main.svg");
   background-repeat: no-repeat;
