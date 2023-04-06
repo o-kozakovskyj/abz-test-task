@@ -23,13 +23,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .input-wrapper {
   width: 328px;
   height: 54px;
   color: $input-placeholder;
   position: relative;
-  font-size: 16px;
   line-height: 26px;
 
   &__label {

@@ -75,12 +75,6 @@ export default {
   }
 }
 
-/* label {
-  margin-left: 20px;
-  font-size: 16px;
-  line-height: 16px;
-} */
-
 [type="radio"] {
   visibility: hidden;
 }

@@ -73,8 +73,7 @@ input {
   display: none;
   background-color: $background-main;
 }
-#output {
-  
+#output {  
   height: 56px;
   margin-left: 34px;
 }
