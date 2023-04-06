@@ -61,6 +61,7 @@ export default {
         position_id: "",
       },
       isUserCreated: false,
+      token: "",
     }
   },
   methods: {
@@ -73,8 +74,20 @@ export default {
       formData.append("photo", this.user.photo);
       this.postUser(formData);
     },
+    async getToken() {
+      const url = "https://frontend-test-assignment-api.abz.agency/api/v1/token";
+      try {
+        const response = await axios.get(url);
+        if (response.status === 200) {
+          this.token = response.data.token;
+          return response.data.token;
+        }
+      } catch (error) {
+        alert(error);
+      }
+    },
     async postUser(formData) {
-      const token = process.env.VUE_APP_TOKEN;
+      const token = await this.getToken();
       const url = "https://frontend-test-assignment-api.abz.agency/api/v1/users";
       try {
         const response = await axios.post(url, formData, {
@@ -86,7 +99,7 @@ export default {
           this.isUserCreated = true;
         }
       } catch (error) {
-        console.log(error);
+        alert(error);
       }finally {
         this.$forceUpdate();
       }
