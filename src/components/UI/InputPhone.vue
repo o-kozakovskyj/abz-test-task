@@ -35,3 +35,15 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+input:invalid+span::after {
+  display: inline-block;
+  content: "Must be a valid phone number";
+  color: red;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  padding: 10px;
+  font-size: 12px;
+}
+</style>
